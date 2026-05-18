@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login</title>
+
+  <script src="script.js/login.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial;
+    }
+
+    body {
+      background: #f3f4f6;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      background: white;
+      padding: 20px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .left-nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 18px;
+    }
+
+
+    .nav-links a:hover {
+      color: black;
+    }
+
+    .right-nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .login-btn {
+      border: 1px solid #999;
+      color: black;
+    }
+
+    .register-btn {
+      background: #1f2937;
+      color: white;
+    }
+
+    /* ================= MAIN ================= */
+
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      display: flex;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .left {
+      width: 50%;
+      position: relative;
+    }
+
+    .left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .left::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      color: white;
+      z-index: 2;
+    }
+
+    .overlay h1 {
+      font-size: 45px;
+      margin: 20px 0;
+      width: 80%;
+      line-height: 1.2;
+    }
+
+    .overlay p {
+      width: 75%;
+      line-height: 1.6;
+    }
+
+    .right {
+      width: 50%;
+      padding: 80px;
+    }
+
+    .right h1 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .sub-text {
+      color: gray;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      outline: none;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .remember {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .submit-btn {
+      background: #1f2937;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+    .create-account {
+      color:black;
+    }
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:900px) {
+
+      .container {
+        flex-direction: column;
+        width: 95%;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      nav {
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav>
+
+    <div class="left-nav">
+      <div class="logo">NovaCart</div>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="shop.html">Shop</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <div class="right-nav">
+
+      <a href="login.html" class="btn login-btn">
+        Login
+      </a>
+
+      <a href="register.html" class="btn register-btn">
+        Register
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ================= MAIN CONTAINER ================= -->
+
+  <div class="container">
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+      <img src="./imgs/log.avif">
+
+      <div class="overlay">
+
+        <h4>WELCOME BACK</h4>
+
+        <h1>
+          Access your cart and continue shopping faster.
+        </h1>
+
+        <p>
+          Your demo account is stored locally in this browser.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+      <h1>Login</h1>
+
+      <p class="sub-text">
+        Enter your registered email and password.
+      </p>
+
+      <form id="loginForm">
+
+        <label>Email address</label>
+
+        <input type="email" id="email">
+
+        <small class="error" id="emailError"></small>
+
+        <label>Password</label>
+
+        <input type="password" id="password">
+
+        <small class="error" id="passwordError"></small>
+
+        <div class="options">
+
+          <div class="remember">
+
+            <input type="checkbox">
+
+            <span>Remember me</span>
+
+          </div>
+
+          <a href="register.html" class="create-account">
+            Create account
+          </a>
+
+        </div>
+
+        <button class="submit-btn">
+          Login
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
